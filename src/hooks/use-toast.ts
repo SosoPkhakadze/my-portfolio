@@ -1,16 +1,16 @@
 import * as React from "react"
 
-// TEMPORARY FIX: Define basic types here since the UI component doesn't exist yet.
-// We will remove these lines in the next step.
-type ToastProps = any;
-type ToastActionElement = React.ReactElement<any>;
+// REMOVE THE TEMPORARY FIX
+// type ToastProps = any;
+// type ToastActionElement = React.ReactElement<any>;
 // END TEMPORARY FIX
 
-// Original import that was causing the error:
-// import type {
-//   ToastActionElement,
-//   ToastProps,
-// } from "@/components/ui/toast"
+// UNCOMMENT THE REAL IMPORT
+import type {
+  ToastActionElement,
+  ToastProps,
+} from "@/components/ui/toast"
+
 
 const TOAST_LIMIT = 1
 const TOAST_REMOVE_DELAY = 1000000
