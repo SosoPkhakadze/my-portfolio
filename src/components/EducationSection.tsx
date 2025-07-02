@@ -5,24 +5,25 @@ const EducationSection = () => {
   const currentYear = new Date().getFullYear();
   const startYear = 2022;
   const endYear = 2026;
-  const progress = ((currentYear - startYear) / (endYear - startYear)) * 100;
+  const progress = Math.min(((currentYear - startYear) / (endYear - startYear)) * 100, 100);
 
+  // --- YOUR PERSONALIZED EDUCATION DATA ---
   const achievements = [
-    "Advanced Backend Development",
+    "Backend Development with Django",
     "Data Structures & Algorithms", 
     "Database Design & Management",
     "Software Engineering Principles",
-    "Machine Learning Fundamentals",
-    "Web Development Technologies"
+    "Computer Architecture",
+    "Human Resource Management & Leadership"
   ];
 
   const courses = [
-    { name: "Data Structures & Algorithms", grade: "A", completed: true },
-    { name: "Database Systems", grade: "A", completed: true },
-    { name: "Software Engineering", grade: "A-", completed: true },
-    { name: "Web Development", grade: "A", completed: true },
-    { name: "Machine Learning", grade: "B+", completed: true },
-    { name: "Computer Networks", grade: "A-", completed: false }
+    { name: "Algorithms & Data Structures", grade: "A", completed: true },
+    { name: "Backend Dev with Django", grade: "A", completed: true },
+    { name: "Databases I", grade: "A", completed: true },
+    { name: "Software Engineering I", grade: "A-", completed: true },
+    { name: "Entrepreneurial Business", grade: "A", completed: true },
+    { name: "Operating Systems", grade: "In Progress", completed: false }
   ];
 
   return (
@@ -33,7 +34,7 @@ const EducationSection = () => {
             Education
           </h2>
           <p className="text-muted-foreground text-lg">
-            Building a strong foundation in computer science
+            My academic journey in computer science and business.
           </p>
         </div>
 
@@ -65,7 +66,7 @@ const EducationSection = () => {
                   <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
                     <div 
                       className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out glow-blue"
-                      style={{ width: `${Math.min(progress, 100)}%` }}
+                      style={{ width: `${progress}%` }}
                     ></div>
                   </div>
                   <div className="flex justify-between text-sm text-muted-foreground">
@@ -109,34 +110,19 @@ const EducationSection = () => {
                         variant={course.completed ? "default" : "secondary"}
                         className={course.completed ? "bg-primary text-primary-foreground" : ""}
                       >
-                        {course.completed ? course.grade : "In Progress"}
+                        {course.grade}
                       </Badge>
                     </div>
                   ))}
                 </div>
 
-                {/* Academic Focus */}
                 <Card className="bg-gradient-card p-4 border-border">
                   <h5 className="font-semibold text-foreground mb-2">Academic Focus</h5>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    My studies focus on practical software development, with emphasis on 
-                    backend systems, data management, and automation. I actively apply 
-                    classroom knowledge to real-world projects, combining theoretical 
-                    foundations with hands-on industry experience.
+                    Pursuing an innovative computer science degree with a comprehensive curriculum and a minor in Business Administration to blend technical skills with practical project leadership.
                   </p>
                 </Card>
 
-                {/* University Stats */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-primary">3.8+</div>
-                    <div className="text-sm text-muted-foreground">GPA</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-primary">15+</div>
-                    <div className="text-sm text-muted-foreground">Courses</div>
-                  </div>
-                </div>
               </div>
             </div>
           </Card>

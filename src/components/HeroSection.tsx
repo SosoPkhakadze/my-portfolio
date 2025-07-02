@@ -9,11 +9,11 @@ const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0);
   
   const fullText = "Hi, I'm Soso Pkhakadze";
+  // --- YOUR PERSONALIZED ROLES ---
   const roles = [
-    "QA Engineer",
-    "Data Engineer", 
-    "Backend Developer",
-    "Software Engineer"
+    "Software Developer",
+    "No-code Developer",
+    "Automation Engineer"
   ];
 
   useEffect(() => {
@@ -87,7 +87,7 @@ const HeroSection = () => {
               </span>
             </div>
 
-            {/* Description */}
+            {/* --- YOUR PERSONALIZED DESCRIPTION --- */}
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
               Passionate about building scalable backend solutions, automating processes, 
               and transforming data into actionable insights. Currently working on cutting-edge 

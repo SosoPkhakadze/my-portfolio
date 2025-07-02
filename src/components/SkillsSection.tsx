@@ -5,55 +5,55 @@ import { Badge } from '@/components/ui/badge';
 const SkillsSection = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
+  // --- YOUR PERSONALIZED SKILLS DATA ---
   const skillCategories = [
     {
-      id: 'programming',
+      id: 'development',
       title: 'Programming & Development',
       color: 'neon-blue',
       skills: [
-        { name: 'Python', level: 95, description: 'Django, FastAPI, Pandas, NumPy' },
-        { name: 'JavaScript', level: 85, description: 'React, Node.js, ES6+' },
-        { name: 'SQL', level: 90, description: 'Complex queries, optimization' },
-        { name: 'HTML/CSS', level: 85, description: 'Modern web standards' },
-        { name: 'Java', level: 75, description: 'Object-oriented programming' },
-        { name: 'C', level: 70, description: 'System programming basics' }
-      ]
-    },
-    {
-      id: 'data',
-      title: 'Data Analysis & Visualization',
-      color: 'neon-purple',
-      skills: [
-        { name: 'Pandas', level: 90, description: 'Data manipulation & analysis' },
-        { name: 'Matplotlib', level: 85, description: 'Data visualization' },
-        { name: 'Power BI', level: 80, description: 'Business intelligence' },
-        { name: 'Tableau', level: 75, description: 'Interactive dashboards' },
-        { name: 'NumPy', level: 85, description: 'Numerical computing' }
+        { name: 'Python', level: 95, description: 'Advanced proficiency in Django, Flask, and data science libraries.' },
+        { name: 'JavaScript', level: 85, description: 'Strong in modern JS (ES6+) and React for frontend development.' },
+        { name: 'React', level: 85, description: 'Building interactive and responsive user interfaces.' },
+        { name: 'Django', level: 90, description: 'Expertise in creating robust backend systems and REST APIs.' },
+        { name: 'Flask', level: 80, description: 'Building lightweight web applications and microservices.' },
+        { name: 'OOP', level: 90, description: 'Strong foundation in Object-Oriented Programming principles.' },
+        { name: 'Data Structures & Algorithms', level: 90, description: 'Proficient in design, analysis, and implementation.' },
+        { name: 'HTML/CSS', level: 85, description: 'Creating semantic, accessible, and stylish web pages.' },
       ]
     },
     {
       id: 'databases',
-      title: 'Databases',
+      title: 'Databases & APIs',
       color: 'neon-cyan',
       skills: [
-        { name: 'PostgreSQL', level: 90, description: 'Advanced queries, optimization' },
-        { name: 'MongoDB', level: 85, description: 'NoSQL, aggregation pipelines' },
-        { name: 'MySQL', level: 85, description: 'Relational database design' },
-        { name: 'MariaDB', level: 80, description: 'Database administration' },
-        { name: 'SQLite', level: 85, description: 'Lightweight databases' }
+        { name: 'SQL', level: 90, description: 'Advanced queries, optimization across MySQL & MariaDB.' },
+        { name: 'PostgreSQL', level: 85, description: 'Experience with advanced features and performance tuning.' },
+        { name: 'SQLite', level: 80, description: 'Utilizing for lightweight and embedded applications.' },
+        { name: 'Postman', level: 85, description: 'Skilled in API testing, documentation, and automated checks.' },
+        { name: 'REST APIs', level: 95, description: 'Designing, building, and integrating RESTful services.' },
+      ]
+    },
+    {
+      id: 'bi_data',
+      title: 'BI & Data Visualization',
+      color: 'neon-purple',
+      skills: [
+        { name: 'Power BI', level: 90, description: 'Creating insightful and interactive business intelligence dashboards.' },
+        { name: 'Tableau', level: 80, description: 'Developing data visualizations for exploratory analysis.' },
+        { name: 'Pandas & NumPy', level: 85, description: 'Core libraries for data manipulation and numerical computing in Python.' },
+        { name: 'Matplotlib', level: 80, description: 'Standard Python library for static and interactive visualizations.' },
       ]
     },
     {
       id: 'devops',
-      title: 'Automation & DevOps',
+      title: 'DevOps & Version Control',
       color: 'neon-pink',
       skills: [
-        { name: 'n8n', level: 95, description: 'Workflow automation' },
-        { name: 'Make', level: 90, description: 'Process automation' },
-        { name: 'CI/CD', level: 85, description: 'Pipeline optimization' },
-        { name: 'AWS', level: 80, description: 'Cloud infrastructure' },
-        { name: 'Docker', level: 75, description: 'Containerization' },
-        { name: 'Git/GitHub', level: 90, description: 'Version control' }
+        { name: 'Docker', level: 80, description: 'Containerization for consistent deployment and scalability.' },
+        { name: 'Git & GitHub', level: 95, description: 'Advanced version control, branching strategies, and collaboration.' },
+        { name: 'Agile Methodologies', level: 80, description: 'Working in iterative development cycles, familiar with Scrum.' },
+        { name: 'Testing & Debugging', level: 90, description: 'Unit testing, integration testing, and effective debugging.' },
       ]
     }
   ];
@@ -74,7 +74,6 @@ const SkillsSection = () => {
           </p>
         </div>
 
-        {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           <button
             onClick={() => setSelectedCategory('all')}
@@ -101,9 +100,8 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        {/* Skills Grid */}
         <div className="grid lg:grid-cols-2 gap-8">
-          {filteredCategories.map((category, categoryIndex) => (
+          {filteredCategories.map((category) => (
             <Card key={category.id} className="glass p-6 hover-lift">
               <h3 className="text-xl font-semibold gradient-text mb-6 flex items-center">
                 <div className={`w-3 h-3 bg-${category.color} rounded-full mr-3`}></div>
@@ -116,7 +114,7 @@ const SkillsSection = () => {
                     key={skill.name}
                     className="space-y-2"
                     style={{
-                      animationDelay: `${(categoryIndex * 100) + (skillIndex * 50)}ms`
+                      animationDelay: `${skillIndex * 50}ms`
                     }}
                   >
                     <div className="flex justify-between items-center">
@@ -126,14 +124,11 @@ const SkillsSection = () => {
                       </Badge>
                     </div>
                     
-                    {/* Progress Bar */}
                     <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                       <div 
                         className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out glow-blue"
                         style={{ 
-                          width: selectedCategory === 'all' || selectedCategory === category.id 
-                            ? `${skill.level}%` 
-                            : '0%' 
+                          width: `${skill.level}%` 
                         }}
                       ></div>
                     </div>
