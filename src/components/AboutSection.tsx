@@ -53,10 +53,9 @@ developer.getExpertise();`;
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Code Editor Mockup */}
-          <Card className="glass p-6 hover-lift">
-            <div className="bg-space-darker rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden border border-border">
               {/* Editor header */}
-              <div className="flex items-center justify-between p-4 border-b border-border">
+              <div className="flex items-center justify-between p-4 border-b border-border bg-muted">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -66,18 +65,18 @@ developer.getExpertise();`;
               </div>
               
               {/* Code content */}
-              <div className="p-4 font-mono text-sm">
-                <pre className="text-foreground leading-relaxed">
+              <div className="p-4 font-mono text-sm max-w-full overflow-x-auto bg-background rounded-b-lg custom-scroll">
+                <pre className="text-foreground leading-relaxed max-w-full">
                   <code dangerouslySetInnerHTML={{ __html: codeSnippet
-                    .replace(/const|let|var/g, '<span style="color: rgb(147, 51, 234)">$&</span>')
-                    .replace(/"[^"]*"/g, '<span style="color: rgb(34, 197, 94)">$&</span>')
-                    .replace(/\/\/.*$/gm, '<span style="color: rgb(156, 163, 175)">$&</span>')
-                    .replace(/\b(name|role|location|backend|automation|databases|testing|currentFocus|passion)\b/g, '<span style="color: rgb(59, 130, 246)">$&</span>')
+                    .replace(/const|let|var/g, '<span style="color: hsl(var(--primary))">$&</span>')
+                    .replace(/"[^"]*"/g, '<span style="color: hsl(var(--accent))">$&</span>')
+                    .replace(/\/\/.*$/gm, '<span style="color: hsl(var(--muted-foreground))">$&</span>')
+                    .replace(/\b(name|role|location|backend|automation|databases|testing|currentFocus|passion)\b/g, '<span style="color: hsl(var(--primary))">$&</span>')
                   }} />
                 </pre>
               </div>
             </div>
-          </Card>
+                
 
           {/* About Content */}
           <div className="space-y-6">
