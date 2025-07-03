@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 import profileImage from '@/assets/profile.jpg';
+import { ResumeViewer } from './ResumeViewer';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
@@ -9,7 +10,6 @@ const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0);
   
   const fullText = "Hi, I'm Soso Pkhakadze";
-  // --- YOUR PERSONALIZED ROLES ---
   const roles = [
     "Software Developer",
     "No-code Developer",
@@ -87,7 +87,6 @@ const HeroSection = () => {
               </span>
             </div>
 
-            {/* --- YOUR PERSONALIZED DESCRIPTION --- */}
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
               Passionate about building scalable backend solutions, automating processes, 
               and transforming data into actionable insights. Currently working on cutting-edge 
@@ -95,7 +94,7 @@ const HeroSection = () => {
             </p>
 
             {/* Action buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start flex-wrap">
               <Button 
                 onClick={() => scrollToSection('projects')}
                 size="lg"
@@ -111,6 +110,7 @@ const HeroSection = () => {
               >
                 Get In Touch
               </Button>
+              <ResumeViewer triggerType="button" />
             </div>
           </div>
         </div>

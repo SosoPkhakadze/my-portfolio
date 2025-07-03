@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ThemeToggle } from '@/components/ThemeToggle'; // Import the new component
+import { ThemeToggle } from '@/components/ThemeToggle';
+import { ResumeViewer } from './ResumeViewer';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -57,8 +58,9 @@ const Header = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="hidden md:flex items-center gap-2"> {/* New wrapper div */}
-            <ThemeToggle /> {/* Add the toggle button */}
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
+            <ResumeViewer triggerType="icon" />
             <Button 
               onClick={() => scrollToSection('contact')}
               className="bg-primary hover:bg-primary/80 text-primary-foreground glow-blue pulse-glow"
