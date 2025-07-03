@@ -4,14 +4,11 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-// --- ADD THIS 'base' PROPERTY ---
-// Replace 'my-portfolio' with your repository name
-base: "/my-portfolio/",
-// ---------------------------------
-server: {
-host: "::",
-port: 8080,
-},
+  base: "/my-portfolio/", // Make sure this matches your repo name exactly
+  server: {
+    host: "::",
+    port: 8080,
+  },
 plugins: [
 react(),
 mode === 'development' &&
