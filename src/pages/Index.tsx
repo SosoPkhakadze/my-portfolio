@@ -10,10 +10,12 @@ import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import EducationSection from '@/components/EducationSection';
 import ContactSection from '@/components/ContactSection';
+import CursorTrail from '@/components/CursorTrail'; // Import the new component
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
+      <CursorTrail /> {/* Add the component here */}
       <ParticleBackground />
       <Header />
       
