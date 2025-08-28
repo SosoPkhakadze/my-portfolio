@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Image as ImageIcon, Github } from 'lucide-react';
+import { Image as ImageIcon, Github, ExternalLink } from 'lucide-react';
 
 // --- YOUR PROJECT IMAGES (NO CHANGE) ---
 import jobSearch1 from "@/assets/Job_Search/Job_Search_1.png";
@@ -24,11 +24,34 @@ import salesDashboard2 from "@/assets/Sales_Dashboard/Sales_Dashboard_2.jpg";
 import browseRepos1 from "@/assets/Browse_Repos/Browse-Repos_1.png";
 import browseRepos2 from "@/assets/Browse_Repos/Browse-Repos_2.png";
 
+// --- NEW: A clear type definition for a Project ---
+// This makes demoLink and githubLink optional, fixing the error.
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  tags: string[];
+  images: any[]; // Using 'any' to match original image imports
+  githubLink?: string; // Optional
+  demoLink?: string;   // Optional
+};
+
 const ProjectsSection = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
 
-  // --- YOUR PERSONALIZED PROJECT DATA (NO CHANGE) ---
-  const projects = [
+  // --- We now define the array as being of type Project[] ---
+  const projects: Project[] = [
+    {
+      id: 'taskflow-ai',
+      title: 'TaskFlow AI - Automation App',
+      description: 'A full-stack to-do application built with Next.js, featuring a realtime UI powered by Supabase. Integrated with n8n and the OpenAI API to create an AI-powered automation that enhances, clarifies, and breaks down user tasks into actionable steps in the background.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Supabase', 'n8n', 'OpenAI API', 'Vercel', 'Tailwind CSS'],
+      tags: ['nextjs', 'react', 'full-stack', 'automation', 'ai', 'api'],
+      images: [],
+      githubLink: 'https://github.com/SosoPkhakadze/taskflow-ai',
+      demoLink: 'https://taskflow-ai-km3x.vercel.app/',
+    },
     {
       id: 'github-repo-browser',
       title: 'GitHub Repository Browser',
@@ -63,7 +86,7 @@ const ProjectsSection = () => {
       technologies: ['Django', 'Python', 'OpenWeatherMap API'],
       tags: ['python', 'django', 'backend', 'api'],
       images: [weather1, weather2],
-      githubLink: 'https://github.com/SosoPkhakadze/Weather-forecast',
+      githubLink: 'https://github.comcom/SosoPkhakadze/Weather-forecast',
     },
     {
       id: "job-aggregator",
@@ -103,7 +126,6 @@ const ProjectsSection = () => {
   
   const allTags = new Set(projects.flatMap(p => p.tags));
   const filters = [{ id: 'all', label: 'All Projects' }, ...Array.from(allTags).map(tag => ({ id: tag, label: tag.charAt(0).toUpperCase() + tag.slice(1) }))];
-
   const filteredProjects = selectedFilter === 'all' 
     ? projects 
     : projects.filter(project => project.tags.includes(selectedFilter));
@@ -136,7 +158,6 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        {/* --- REVISED PROJECTS GRID --- */}
         <div className="grid md:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => (
             <Dialog key={project.id}>
@@ -144,7 +165,6 @@ const ProjectsSection = () => {
                 className="glass overflow-hidden hover-lift group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {/* Project Image and Hover Overlay */}
                 <div className="relative h-48 bg-gradient-card overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -152,33 +172,42 @@ const ProjectsSection = () => {
                       {project.title.split(' ').map(word => word[0]).join('')}
                     </div>
                   </div>
-                  {/* Hover overlay with buttons */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                    <DialogTrigger asChild>
-                      <Button
-                        size="sm"
-                        className="bg-primary hover:bg-primary/80"
-                        disabled={!project.images || project.images.length === 0}
-                      >
-                        <ImageIcon className="w-4 h-4 mr-2" />
-                        View Images
+                    {project.demoLink ? (
+                      <Button asChild size="sm" className="bg-primary hover:bg-primary/80">
+                        <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          View Demo
+                        </a>
                       </Button>
-                    </DialogTrigger>
-                    <Button
-                      asChild
-                      size="sm"
-                      variant="outline"
-                      className="border-white text-white hover:bg-white hover:text-black"
-                    >
-                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </a>
-                    </Button>
+                    ) : (
+                      <DialogTrigger asChild>
+                        <Button
+                          size="sm"
+                          className="bg-primary hover:bg-primary/80"
+                          disabled={!project.images || project.images.length === 0}
+                        >
+                          <ImageIcon className="w-4 h-4 mr-2" />
+                          View Images
+                        </Button>
+                      </DialogTrigger>
+                    )}
+                    {project.githubLink && (
+                      <Button
+                        asChild
+                        size="sm"
+                        variant="outline"
+                        className="border-white text-white hover:bg-white hover:text-black"
+                      >
+                        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-4 h-4 mr-2" />
+                          Code
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
 
-                {/* Project Content */}
                 <div className="p-6 space-y-4">
                   <div>
                     <h3 className="text-xl font-semibold gradient-text mb-2">
@@ -188,8 +217,6 @@ const ProjectsSection = () => {
                       {project.description}
                     </p>
                   </div>
-
-                  {/* Technologies */}
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <Badge 
@@ -204,7 +231,6 @@ const ProjectsSection = () => {
                 </div>
               </Card>
 
-              {/* Dialog Content for Image Carousel (no change here) */}
               <DialogContent className="max-w-3xl">
                 <DialogHeader>
                   <DialogTitle>{project.title}</DialogTitle>

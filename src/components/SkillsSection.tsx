@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { clsx } from 'clsx';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Lightbulb, Code, Database, AreaChart, GitMerge, Cpu, TestTube2 } from 'lucide-react';
+// Added Server icon for the new category
+import { Lightbulb, Code, Database, AreaChart, GitMerge, Cpu, TestTube2, Server } from 'lucide-react';
 
 interface Skill {
   name: string;
@@ -25,6 +26,7 @@ interface UnifiedSkill extends Skill {
   categoryIcon: React.ElementType;
 }
 
+// --- UPDATED SKILL CATEGORIES DATA ---
 const skillCategories: SkillCategory[] = [
   {
     id: 'development',
@@ -32,13 +34,12 @@ const skillCategories: SkillCategory[] = [
     icon: Code,
     color: 'sky-400',
     skills: [
-      { name: 'Python', description: 'Advanced proficiency with Django, FastAPI, Pandas, NumPy, OpenCV, and Matplotlib for backend development and data processing.' },
-      { name: 'JavaScript', description: 'Experience in building web applications with React and developing browser extensions.' },
-      { name: 'Django', description: 'Developed multiple web applications including job search platforms, product search tools, and weather forecast apps.' },
-      { name: 'FastAPI', description: 'Built RESTful APIs handling real-time data operations with improved response times.' },
-      { name: 'HTML/CSS', description: 'Frontend development for various projects with responsive design.' },
-      { name: 'Java', description: 'Basic knowledge of Java programming language.' },
-      { name: 'C', description: 'Understanding of low-level programming concepts.' },
+      { name: 'Next.js', description: 'Built full-stack, server-rendered applications with the App Router, API Routes, and Vercel deployment.' },
+      { name: 'React', description: 'Developed dynamic and responsive user interfaces for complex web applications.' },
+      { name: 'TypeScript', description: 'Utilized strong typing to build scalable, maintainable, and error-resistant applications.' },
+      { name: 'Python', description: 'Advanced proficiency with Django, FastAPI, Pandas, and NumPy for backend services and data processing.' },
+      { name: 'Django', description: 'Developed multiple web applications including job search platforms and product search tools.' },
+      { name: 'HTML/CSS', description: 'Frontend development for various projects with a focus on responsive design and modern standards.' },
     ]
   },
   {
@@ -47,11 +48,23 @@ const skillCategories: SkillCategory[] = [
     icon: Database,
     color: 'emerald-400',
     skills: [
+      { name: 'Supabase', description: 'Leveraged Supabase for its PostgreSQL database, authentication, and realtime capabilities to build event-driven applications.' },
       { name: 'PostgreSQL', description: 'Engineered scalable data pipelines and storage solutions, reducing data processing time.' },
-      { name: 'MongoDB', description: 'Experience with NoSQL database for flexible data storage solutions.' },
-      { name: 'MySQL', description: 'Proficient in relational database design and management.' },
+      { name: 'MySQL', description: 'Proficient in relational database design and management for various backend systems.' },
+      { name: 'OpenAI API', description: 'Integrated AI models for natural language processing, text generation, and task enhancement.' },
       { name: 'REST APIs', description: 'Designed and implemented RESTful APIs for multiple projects with external integrations.' },
-      { name: 'Postman', description: 'API testing and documentation for backend services.' },
+    ]
+  },
+  {
+    id: 'automation',
+    title: 'Automation & Workflow',
+    icon: GitMerge, // Using GitMerge icon for automation
+    color: 'pink-400',
+    skills: [
+      { name: 'n8n', description: 'Designed and built complex, multi-step automation workflows connecting APIs and AI services to perform background tasks.' },
+      { name: 'Make.com', description: 'Experienced in creating visual workflows to automate repetitive tasks and integrate various cloud services.' },
+      { name: 'CI/CD', description: 'Optimized pipelines reducing release cycle time and enhancing system stability.' },
+      { name: 'Git', description: 'Version control and collaborative development workflows using Git and GitHub.' },
     ]
   },
   {
@@ -60,24 +73,21 @@ const skillCategories: SkillCategory[] = [
     icon: Cpu,
     color: 'purple-400',
     skills: [
-      { name: 'Pandas', description: 'Data manipulation and analysis for large-scale dataset management.' },
-      { name: 'NumPy', description: 'Numerical computing for data processing tasks.' },
+      { name: 'Pandas & NumPy', description: 'Data manipulation and numerical computing for large-scale dataset management and analysis.' },
       { name: 'Matplotlib', description: 'Created visualizations for data analysis and image processing projects.' },
       { name: 'OpenCV', description: 'Image processing and computer vision applications.' },
-      { name: 'Power BI', description: 'Data visualization and business intelligence reporting.' },
+      { name: 'Power BI', description: 'Data visualization and business intelligence reporting for data-driven insights.' },
     ]
   },
   {
-    id: 'devops',
-    title: 'DevOps & Automation',
-    icon: GitMerge,
-    color: 'pink-400',
+    id: 'cloud',
+    title: 'Deployment & Cloud',
+    icon: Server, // New icon
+    color: 'orange-400', // New color
     skills: [
-      { name: 'Docker', description: 'Containerized applications for deployment and testing.' },
-      { name: 'AWS', description: 'Managed automation pipelines on AWS Ubuntu servers, improving deployment efficiency.' },
-      { name: 'CI/CD', description: 'Optimized pipelines reducing release cycle time and enhancing system stability.' },
-      { name: 'Git', description: 'Version control and collaborative development workflows.' },
-      { name: 'n8n', description: 'Designed custom nodes to enhance automation workflows, reducing manual intervention.' },
+        { name: 'Vercel', description: 'Deployed and managed modern web applications with seamless Git integration and serverless functions.' },
+        { name: 'AWS', description: 'Managed automation pipelines on AWS Ubuntu servers, improving deployment efficiency.' },
+        { name: 'Docker', description: 'Containerized applications for consistent development, testing, and deployment environments.' },
     ]
   },
   {
@@ -89,9 +99,12 @@ const skillCategories: SkillCategory[] = [
       { name: 'Automated Testing', description: 'Developed test scripts reducing manual testing time with improved accuracy.' },
       { name: 'QA Processes', description: 'Conducted in-depth QA for backend functionalities across Python and JavaScript applications.' },
       { name: 'Debugging', description: 'Identified issues in data processing and API calls to improve system reliability.' },
+      { name: 'Postman', description: 'API testing, documentation, and validation for backend services.' },
     ]
   }
 ];
+
+// --- NO CHANGES TO THE REST OF THE COMPONENT ---
 
 const SkillDetailCard = ({ skill }: { skill: UnifiedSkill }) => {
   if (!skill) return null;
@@ -178,7 +191,8 @@ const SkillsSection = () => {
     ), 
   []);
 
-  const [hoveredSkill, setHoveredSkill] = useState<UnifiedSkill>(allSkills[0]);
+  // Set the default hovered skill safely, checking if allSkills has content.
+  const [hoveredSkill, setHoveredSkill] = useState<UnifiedSkill>(allSkills[0] || null);
   
   const categories = [{ id: 'all', title: 'All Skills', icon: Lightbulb }, ...skillCategories];
 
