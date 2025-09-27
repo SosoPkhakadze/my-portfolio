@@ -42,8 +42,8 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "soso.pkhakadze@gmail.com",
-      href: "mailto:soso.pkhakadze@gmail.com",
+      value: "soso.pkhakadze.dev@gmail.com",
+      href: "mailto:soso.pkhakadze.dev@gmail.com",
       description: "Drop me a line anytime"
     },
     {
