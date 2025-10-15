@@ -37,7 +37,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* REMOVED CANVAS - REPLACED WITH A SIMPLER, THEME-AWARE CSS BACKGROUND */}
       <div className="absolute inset-0 z-0 opacity-50 bg-aurora animate-aurora" />
 

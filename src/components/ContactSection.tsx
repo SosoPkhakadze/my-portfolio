@@ -1,224 +1,119 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Mail, MapPin, Github, Linkedin } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { Mail, Github, Linkedin, MapPin, ExternalLink, ArrowRight } from 'lucide-react';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you soon!",
-      });
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setIsSubmitting(false);
-    }, 1500);
-  };
-
-  const contactInfo = [
+  const contactChannels = [
     {
       icon: Mail,
       label: "Email",
       value: "soso.pkhakadze.dev@gmail.com",
       href: "mailto:soso.pkhakadze.dev@gmail.com",
-      description: "Drop me a line anytime"
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Kutaisi, Georgia",
-      href: "#",
-      description: "Available for remote work"
+      subtext: "Best for detailed inquiries",
+      color: "from-red-500 to-pink-500"
     },
     {
       icon: Github,
       label: "GitHub",
       value: "github.com/sosopkhakadze",
       href: "https://github.com/sosopkhakadze",
-      description: "Check out my repositories"
+      subtext: "Check my work & repositories",
+      color: "from-slate-600 to-slate-800"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "linkedin.com/in/sosopkhakadze",
       href: "https://linkedin.com/in/sosopkhakadze",
-      description: "Let's connect professionally"
+      subtext: "Professional connections",
+      color: "from-blue-600 to-blue-700"
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: "Kutaisi, Georgia",
+      href: "#",
+      subtext: "Remote work available",
+      color: "from-amber-500 to-orange-600"
     }
   ];
 
   return (
-    <section id="contact" className="py-20 relative">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-20 px-4">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold gradient-text mb-4 font-display">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Contact</span>
+            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">
             Get In Touch
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ready to bring your ideas to life? Let's discuss how we can work together 
-            to build something amazing.
+          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto text-lg">
+            Let's collaborate on exciting projects. Reach out through any channel below
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <Card className="glass p-8 hover-lift">
-            <h3 className="text-2xl font-semibold gradient-text mb-6">Send a Message</h3>
+        {/* Main Contact Cards Grid */}
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {contactChannels.map((channel, idx) => {
+            const Icon = channel.icon;
+            const isLink = channel.href !== '#';
             
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-foreground">
-                    Name *
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="glass border-border focus:border-primary transition-colors"
-                    placeholder="Your full name"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">
-                    Email *
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="glass border-border focus:border-primary transition-colors"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-medium text-foreground">
-                  Subject *
-                </label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  required
-                  className="glass border-border focus:border-primary transition-colors"
-                  placeholder="What's this about?"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-foreground">
-                  Message *
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={6}
-                  className="glass border-border focus:border-primary transition-colors resize-none"
-                  placeholder="Tell me about your project or just say hello..."
-                />
-              </div>
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/80 text-primary-foreground glow-blue pulse-glow"
+            return (
+              <a
+                key={idx}
+                href={channel.href}
+                target={isLink ? '_blank' : undefined}
+                rel={isLink ? 'noopener noreferrer' : undefined}
+                className={`group ${isLink ? 'cursor-pointer' : 'cursor-default'}`}
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </Button>
-            </form>
-          </Card>
-
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <Card className="glass p-6 hover-lift">
-              <h3 className="text-2xl font-semibold gradient-text mb-6">Let's Connect</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                I'm always interested in new opportunities, challenging projects, 
-                and collaborations. Whether you have a project in mind or just want 
-                to chat about technology, feel free to reach out!
-              </p>
-              
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start space-x-4 group">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <info.icon className="w-5 h-5 text-primary" />
+                <Card className="bg-gradient-to-br from-white/70 to-white/50 dark:from-slate-800/70 dark:to-slate-800/50 backdrop-blur-xl p-7 border border-white/20 dark:border-slate-700/20 hover:border-blue-300 dark:hover:border-blue-700/50 transition-all duration-300 hover:shadow-lg h-full hover:scale-105 transform">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className={`w-14 h-14 bg-gradient-to-br ${channel.color} rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:shadow-lg transition-all`}>
+                      <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="font-medium text-foreground mb-1">{info.label}</h4>
-                      <a 
-                        href={info.href}
-                        target={info.href.startsWith('http') ? '_blank' : undefined}
-                        rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="text-primary hover:text-primary/80 transition-colors font-mono text-sm"
-                      >
-                        {info.value}
-                      </a>
-                      <p className="text-muted-foreground text-sm mt-1">{info.description}</p>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm uppercase tracking-wider font-semibold text-slate-600 dark:text-slate-400 mb-1">
+                        {channel.label}
+                      </h3>
+                      <p className="text-lg font-bold text-slate-900 dark:text-white truncate group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {channel.value}
+                      </p>
                     </div>
+                    {isLink && (
+                      <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex-shrink-0 mt-1" />
+                    )}
                   </div>
-                ))}
-              </div>
-            </Card>
-
-            {/* Quick Stats */}
-            <Card className="glass p-6 hover-lift">
-              <h3 className="text-xl font-semibold gradient-text mb-4">Quick Facts</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">24/7</div>
-                  <div className="text-sm text-muted-foreground">Available</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">Remote</div>
-                  <div className="text-sm text-muted-foreground">Work Ready</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">Fast</div>
-                  <div className="text-sm text-muted-foreground">Response</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">Global</div>
-                  <div className="text-sm text-muted-foreground">Reach</div>
-                </div>
-              </div>
-            </Card>
-          </div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">{channel.subtext}</p>
+                </Card>
+              </a>
+            );
+          })}
         </div>
+
+        {/* CTA Section */}
+        <Card className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20 backdrop-blur-xl p-8 border border-blue-200/50 dark:border-blue-800/50">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                Ready to work together?
+              </h3>
+              <p className="text-slate-600 dark:text-slate-300 max-w-md">
+                I'm always open to new opportunities and collaborations. Drop me a message anytime!
+              </p>
+            </div>
+            <a
+              href="mailto:soso.pkhakadze.dev@gmail.com"
+              className="group px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
+            >
+              Send Email
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </Card>
       </div>
     </section>
   );
