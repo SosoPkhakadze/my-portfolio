@@ -8,14 +8,16 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Download, Eye } from "lucide-react";
-import resumeImage from '@/assets/Soso_Pkhakadze_Resume.jpg';
-import resumePdf from '@/assets/Soso_Pkhakadze_Resume.pdf';
+import resumeImage from "@/assets/Soso_Pkhakadze_Resume.jpg";
+import resumePdf from "@/assets/Soso_Pkhakadze_Resume.pdf";
+import { ReactNode } from "react";
 
 interface ResumeViewerProps {
-  triggerType: 'icon' | 'button';
+  triggerType?: "icon" | "button"; // optional, default = 'button'
+  children?: ReactNode; // allow custom trigger
 }
 
-export const ResumeViewer = ({ triggerType }: ResumeViewerProps) => {
+export const ResumeViewer = ({ triggerType = "button", children }: ResumeViewerProps) => {
   const triggerContent = {
     icon: (
       <Button variant="outline" size="icon" aria-label="View Resume">
@@ -36,12 +38,16 @@ export const ResumeViewer = ({ triggerType }: ResumeViewerProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        {triggerContent[triggerType]}
+        {/* If custom children exist, use them; otherwise use built-in button type */}
+        {children ? children : triggerContent[triggerType]}
       </DialogTrigger>
+
       <DialogContent className="sm:max-w-4xl p-0">
         <DialogHeader className="p-6 pb-0">
           <DialogTitle>My Resume</DialogTitle>
         </DialogHeader>
+
+        {/* Resume preview image */}
         <div className="px-6 max-h-[70vh] overflow-y-auto">
           <img
             src={resumeImage}
@@ -49,8 +55,13 @@ export const ResumeViewer = ({ triggerType }: ResumeViewerProps) => {
             className="w-full h-auto rounded-md border"
           />
         </div>
+
+        {/* Footer with Download button */}
         <DialogFooter className="p-6 bg-muted/50 rounded-b-lg">
-          <Button asChild className="bg-primary hover:bg-primary/80 text-primary-foreground glow-blue">
+          <Button
+            asChild
+            className="bg-primary hover:bg-primary/80 text-primary-foreground glow-blue"
+          >
             <a href={resumePdf} download="Soso_Pkhakadze_Resume.pdf">
               <Download className="mr-2 h-4 w-4" />
               Download PDF

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Mail, Github, Linkedin, MapPin, ExternalLink, ArrowRight } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, ExternalLink, ArrowRight, Download } from 'lucide-react';
+import { ResumeViewer } from './ResumeViewer';
+import { Button } from '@/components/ui/button';
 
 const ContactSection = () => {
   const contactChannels = [
@@ -93,6 +95,26 @@ const ContactSection = () => {
             );
           })}
         </div>
+
+        {/* Resume CTA Card */}
+        <Card className="bg-gradient-to-r from-violet-500/10 via-fuchsia-500/10 to-purple-500/10 dark:from-violet-900/20 dark:via-fuchsia-900/20 dark:to-purple-900/20 backdrop-blur-xl p-8 border border-violet-200/50 dark:border-violet-800/50 mb-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                Want to know more about me?
+              </h3>
+              <p className="text-slate-600 dark:text-slate-300 max-w-md">
+                Check out my detailed resume to see my full experience, education, and technical skills.
+              </p>
+            </div>
+            <ResumeViewer triggerType="button">
+              <Button className="group px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 whitespace-nowrap shadow-lg hover:shadow-xl">
+                <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                Download Resume
+              </Button>
+            </ResumeViewer>
+          </div>
+        </Card>
 
         {/* CTA Section */}
         <Card className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20 backdrop-blur-xl p-8 border border-blue-200/50 dark:border-blue-800/50">

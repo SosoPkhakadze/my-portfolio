@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, Terminal, Rocket, Zap } from 'lucide-react';
+import { ArrowRight, Sparkles, Terminal, Rocket, Zap, FileText } from 'lucide-react';
+import { ResumeViewer } from './ResumeViewer';
 
 const HeroSection = () => {
   const [mounted, setMounted] = useState(false);
@@ -38,8 +39,6 @@ const HeroSection = () => {
 
   return (
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* REMOVED CANVAS - REPLACED WITH A SIMPLER, THEME-AWARE CSS BACKGROUND */}
-      <div className="absolute inset-0 z-0 opacity-50 bg-aurora animate-aurora" />
 
       {/* Main Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
@@ -126,6 +125,17 @@ const HeroSection = () => {
                 <Zap className="w-5 h-5 mr-2" />
                 Let's Talk
               </Button>
+
+              <ResumeViewer triggerType="button">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="px-8 py-6 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 hover:from-emerald-500/20 hover:to-teal-500/20 border-2 border-emerald-500/30 hover:border-emerald-500 text-foreground font-semibold rounded-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 shadow-lg shadow-emerald-500/10"
+                >
+                  <FileText className="w-5 h-5 mr-2" />
+                  View Resume
+                </Button>
+              </ResumeViewer>
             </div>
 
             {/* Stats or quick info */}
