@@ -23,6 +23,9 @@ import salesDashboard1 from "@/assets/Sales_Dashboard/Sales_Dashboard_1.jpg";
 import salesDashboard2 from "@/assets/Sales_Dashboard/Sales_Dashboard_2.jpg";
 import browseRepos1 from "@/assets/Browse_Repos/Browse-Repos_1.png";
 import browseRepos2 from "@/assets/Browse_Repos/Browse-Repos_2.png";
+import taskflow1 from "@/assets/TaskFlow_AI/taskflow_1.png";
+import taskflow2 from "@/assets/TaskFlow_AI/taskflow_2.png"
+import giftadvisor from "@/assets/GiftAdvisor/GiftAdvisor.png"
 
 type Project = {
   id: string;
@@ -40,12 +43,22 @@ const ProjectsSection = () => {
 
   const projects: Project[] = [
     {
+      id: 'giftideas-ai',
+      title: 'GiftIdeas AI',
+      description: 'AI-powered gift recommendations with Amazon product integration and dynamic form experience.',
+      technologies: ['Next.js', 'OpenAI', 'Amazon PA-API', 'TypeScript'],
+      category: 'ai',
+      images: [giftadvisor],
+      githubLink: 'https://github.com/SosoPkhakadze/gift-ideas',
+      demoLink: 'https://gift-ideas-brown.vercel.app/',
+    },
+    {
       id: 'taskflow-ai',
       title: 'TaskFlow AI',
       description: 'Full-stack task management application with AI-powered automation. Features real-time updates via Supabase and intelligent task breakdown using OpenAI API.',
       technologies: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI API', 'n8n'],
       category: 'automation',
-      images: [],
+      images: [taskflow1, taskflow2],
       githubLink: 'https://github.com/SosoPkhakadze/taskflow-ai',
       demoLink: 'https://taskflow-ai-km3x.vercel.app/',
     },
@@ -101,7 +114,7 @@ const ProjectsSection = () => {
       technologies: ['Python', 'NumPy', 'Computer Vision'],
       category: 'development',
       images: [],
-      githubLink: 'https://github.com/SosoPkhakadze/Image_Resizing_and_Interpolation',
+      githubLink: 'https://github.com/SosoPkhakadze/image-resizing-interpolation',
     },
     {
       id: 'sales-dashboard',
