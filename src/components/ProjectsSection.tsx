@@ -26,6 +26,7 @@ import browseRepos2 from "@/assets/Browse_Repos/Browse-Repos_2.png";
 import taskflow1 from "@/assets/TaskFlow_AI/taskflow_1.png";
 import taskflow2 from "@/assets/TaskFlow_AI/taskflow_2.png"
 import giftadvisor from "@/assets/GiftAdvisor/GiftAdvisor.png"
+import gmailAnalyzer from "@/assets/Gmail_Analyzer_N8N/Gmail Analyzer.png"
 
 type Project = {
   id: string;
@@ -49,7 +50,7 @@ const ProjectsSection = () => {
       technologies: ['Next.js', 'OpenAI', 'Amazon PA-API', 'TypeScript'],
       category: 'ai',
       images: [giftadvisor],
-      githubLink: 'https://github.com/SosoPkhakadze/gift-ideas',
+      githubLink: 'https://github.com/SosoPkhakadze/GiftIdeas-AI',
       demoLink: 'https://gift-ideas-brown.vercel.app/',
     },
     {
@@ -61,6 +62,15 @@ const ProjectsSection = () => {
       images: [taskflow1, taskflow2],
       githubLink: 'https://github.com/SosoPkhakadze/taskflow-ai',
       demoLink: 'https://taskflow-ai-km3x.vercel.app/',
+    },
+    {
+      id: 'gmail-organizer',
+      title: 'Intelligent Gmail Organizer',
+      description: 'An n8n workflow that uses a hybrid rule-based and AI (GPT-4o-mini) approach to categorize emails, create new labels dynamically, and archive them.',
+      technologies: ['n8n', 'OpenAI API', 'Gmail API', 'JavaScript'],
+      category: 'automation',
+      images: [gmailAnalyzer],
+      githubLink: 'https://github.com/SosoPkhakadze/N8N-Gmail-Analyzer',
     },
     {
       id: 'github-repo-browser',
