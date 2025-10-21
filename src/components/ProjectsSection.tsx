@@ -61,7 +61,7 @@ const ProjectsSection = () => {
       category: 'automation',
       images: [taskflow1, taskflow2],
       githubLink: 'https://github.com/SosoPkhakadze/taskflow-ai',
-      demoLink: 'https://taskflow-ai-km3x.vercel.app/',
+      demoLink: 'https://taskflow-ai-nine.vercel.app/',
     },
     {
       id: 'gmail-organizer',
