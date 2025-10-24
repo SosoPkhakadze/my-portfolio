@@ -27,6 +27,7 @@ import taskflow1 from "@/assets/TaskFlow_AI/taskflow_1.png";
 import taskflow2 from "@/assets/TaskFlow_AI/taskflow_2.png"
 import giftadvisor from "@/assets/GiftAdvisor/GiftAdvisor.png"
 import gmailAnalyzer from "@/assets/Gmail_Analyzer_N8N/Gmail Analyzer.png"
+import AutomatedWeeklyReport from "@/assets/Automated Weekly Marketing Performance Report/Automated Weekly Marketing Performance Report.png"
 
 type Project = {
   id: string;
@@ -71,6 +72,15 @@ const ProjectsSection = () => {
       category: 'automation',
       images: [gmailAnalyzer],
       githubLink: 'https://github.com/SosoPkhakadze/N8N-Gmail-Analyzer',
+    },
+    {
+    id: 'ai-marketing-report',
+    title: 'AI Marketing Report Automator',
+    description: 'An n8n workflow that automates weekly marketing reporting. It fetches data from Google Sheets, leverages OpenAI for analysis and recommendations, and distributes reports to Google Docs and Slack.',
+    technologies: ['n8n', 'OpenAI API', 'Google Sheets API', 'Google Docs API', 'Slack API', 'JavaScript'],
+    category: 'automation',
+    images: [AutomatedWeeklyReport],
+    githubLink: 'https://github.com/SosoPkhakadze/N8N-Weekly-Marketing-Performance-Report',
     },
     {
       id: 'github-repo-browser',
