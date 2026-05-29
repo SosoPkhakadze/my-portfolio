@@ -7,21 +7,20 @@ import {
   DialogTrigger,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { Download, Eye } from "lucide-react";
-import resumeImage from "@/assets/Soso_Pkhakadze_Resume.jpg";
+import { Download } from "lucide-react";
 import resumePdf from "@/assets/Soso_Pkhakadze_Resume.pdf";
 import { ReactNode } from "react";
 
 interface ResumeViewerProps {
-  triggerType?: "icon" | "button"; // optional, default = 'button'
-  children?: ReactNode; // allow custom trigger
+  triggerType?: "icon" | "button";
+  children?: ReactNode;
 }
 
 export const ResumeViewer = ({ triggerType = "button", children }: ResumeViewerProps) => {
   const triggerContent = {
     icon: (
       <Button variant="outline" size="icon" aria-label="View Resume">
-        <Eye className="h-[1.2rem] w-[1.2rem]" />
+        <Download className="h-[1.2rem] w-[1.2rem]" />
       </Button>
     ),
     button: (
@@ -38,7 +37,6 @@ export const ResumeViewer = ({ triggerType = "button", children }: ResumeViewerP
   return (
     <Dialog>
       <DialogTrigger asChild>
-        {/* If custom children exist, use them; otherwise use built-in button type */}
         {children ? children : triggerContent[triggerType]}
       </DialogTrigger>
 
@@ -47,20 +45,19 @@ export const ResumeViewer = ({ triggerType = "button", children }: ResumeViewerP
           <DialogTitle>My Resume</DialogTitle>
         </DialogHeader>
 
-        {/* Resume preview image */}
-        <div className="px-6 max-h-[70vh] overflow-y-auto">
-          <img
-            src={resumeImage}
-            alt="Resume of Soso Pkhakadze"
-            className="w-full h-auto rounded-md border"
+        <div className="px-6">
+          <embed
+            src={resumePdf}
+            type="application/pdf"
+            className="w-full rounded-md border"
+            style={{ height: "65vh" }}
           />
         </div>
 
-        {/* Footer with Download button */}
         <DialogFooter className="p-6 bg-muted/50 rounded-b-lg">
           <Button
             asChild
-            className="bg-primary hover:bg-primary/80 text-primary-foreground glow-blue"
+            className="bg-primary hover:bg-primary/80 text-primary-foreground"
           >
             <a href={resumePdf} download="Soso_Pkhakadze_Resume.pdf">
               <Download className="mr-2 h-4 w-4" />

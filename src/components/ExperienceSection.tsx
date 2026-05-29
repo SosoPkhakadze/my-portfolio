@@ -32,9 +32,35 @@ const ExperienceSection = () => {
   const experiences: Experience[] = [
     {
       id: 0,
+      title: "Sales Operations & Tech Manager",
+      company: "WarriorBabe",
+      period: "Dec 2025 – Present",
+      location: "Remote",
+      description: [
+        "Architected a full-scale HubSpot Revenue Operations (RevOps) system with Setter, Closer, and Show Rate engines to automate high-ticket sales funnel tracking",
+        "Built a custom Calendly-HubSpot sync patch using Node.js and HubSpot Private Apps to map unique event URIs, ensuring 100% accuracy in meeting attribution",
+        "Engineered Speed-to-Lead tracking with custom office-hour logic and Conditional Stage Properties (CSPs) for real-time lead quality data",
+        "Integrated Hyros marketing attribution platform for full-funnel optimization and ROI tracking"
+      ],
+      achievements: [
+        "Built entire RevOps system from scratch, automating the full high-ticket sales funnel",
+        "Achieved 100% meeting attribution accuracy via custom Calendly-HubSpot sync",
+        "Enabled real-time marketing optimization through Speed-to-Lead tracking with Hyros"
+      ],
+      technologies: ["HubSpot", "n8n", "Node.js", "Calendly API", "Hyros", "CRM Automation", "JavaScript"],
+      impact: [
+        { metric: "Attribution", improvement: "100%" },
+        { metric: "Lead Speed", improvement: "Real-time" },
+        { metric: "Funnel Stages", improvement: "3 Engines" }
+      ],
+      color: "from-cyan-500 via-blue-500 to-indigo-500",
+      gradient: "bg-gradient-to-r from-cyan-500/20 to-indigo-500/20"
+    },
+    {
+      id: 1,
       title: "AI Automation Developer",
       company: "Notretek Solutions Inc.",
-      period: "Jul 2025 - Present",
+      period: "Jul 2025 - Dec 2025",
       location: "Remote, Canada",
       description: [
         "Building and maintaining automation workflows using no-code/low-code tools (Zapier, Make, n8n)",
@@ -57,7 +83,7 @@ const ExperienceSection = () => {
       gradient: "bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20"
     },
     {
-      id: 1,
+      id: 2,
       title: "Software Engineer & QA Automation Engineer",
       company: "Pyrashyut LLC",
       period: "Jan 2024 - Present",
@@ -83,10 +109,10 @@ const ExperienceSection = () => {
       gradient: "bg-gradient-to-r from-blue-500/20 to-teal-500/20"
     },
     {
-      id: 2,
+      id: 3,
       title: "QA Engineer",
       company: "DevsData",
-      period: "Jul 2024 - Present",
+      period: "Jul 2024 - Jan 2025",
       location: "Remote",
       description: [
         "Conducting comprehensive QA for backend functionalities across Python and JavaScript",
@@ -109,7 +135,7 @@ const ExperienceSection = () => {
       gradient: "bg-gradient-to-r from-pink-500/20 to-red-500/20"
     },
     {
-      id: 3,
+      id: 4,
       title: "Lead Python Backend Developer",
       company: "Blueberry Systems AI",
       period: "Mar 2023 - Mar 2025",
@@ -135,7 +161,7 @@ const ExperienceSection = () => {
       gradient: "bg-gradient-to-r from-emerald-500/20 to-lime-500/20"
     },
     {
-      id: 4,
+      id: 5,
       title: "Data Engineer & AI Training Support",
       company: "Netex Consulting LLC",
       period: "Apr 2022 - Aug 2023",
@@ -231,7 +257,7 @@ const ExperienceSection = () => {
         >
           {[
             { icon: Flame, value: "3+", label: "Years", color: "text-orange-500" },
-            { icon: Building2, value: "5", label: "Companies", color: "text-blue-500" },
+            { icon: Building2, value: "6", label: "Companies", color: "text-blue-500" },
             { icon: Rocket, value: "50+", label: "Projects", color: "text-purple-500" },
             { icon: Star, value: "10K+", label: "Users", color: "text-yellow-500" }
           ].map((stat, i) => (
