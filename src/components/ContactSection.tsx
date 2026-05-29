@@ -25,8 +25,8 @@ const ContactSection = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/sosopkhakadze",
-      href: "https://linkedin.com/in/sosopkhakadze",
+      value: "linkedin.com/in/soso-pkhakadze-733428274",
+      href: "https://www.linkedin.com/in/soso-pkhakadze-733428274/",
       subtext: "Professional connections",
       color: "from-blue-600 to-blue-700"
     },
