@@ -15,7 +15,7 @@ const App = () => (
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme"> {/* Add ThemeProvider */}
         <Toaster />
         <Sonner />
-          <BrowserRouter basename="/my-portfolio">
+          <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />
