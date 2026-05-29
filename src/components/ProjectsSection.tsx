@@ -9,8 +9,6 @@ import { Image, Github, ExternalLink, ArrowRight } from 'lucide-react';
 import jobSearch1 from "@/assets/Job_Search/Job_Search_1.png";
 import jobSearch2 from "@/assets/Job_Search/Job_Search_2.png";
 import jobSearch3 from "@/assets/Job_Search/Job_Search_3.png";
-import taskflow1 from "@/assets/TaskFlow_AI/taskflow_1.png";
-import taskflow2 from "@/assets/TaskFlow_AI/taskflow_2.png";
 import gmailAnalyzer from "@/assets/Gmail_Analyzer_N8N/Gmail Analyzer.png";
 import AutomatedWeeklyReport from "@/assets/Automated Weekly Marketing Performance Report/Automated Weekly Marketing Performance Report.png";
 import hubspotApprovalWorkflow from "@/assets/N8N-hubspot-approval-workflow/N8N-hubspot-approval-workflow.png";
@@ -52,15 +50,6 @@ const ProjectsSection = () => {
       images: [],
       status: 'In Development',
       featured: true,
-    },
-    {
-      id: 'taskflow-ai',
-      title: 'TaskFlow AI',
-      description: 'Full-stack AI task management app with real-time Supabase sync and OpenAI-powered task breakdown, priority scoring, and automated workflow suggestions.',
-      technologies: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI API', 'n8n'],
-      category: 'ai',
-      images: [taskflow1, taskflow2],
-      githubLink: 'https://github.com/SosoPkhakadze/taskflow-ai',
     },
     {
       id: 'gmail-organizer',
