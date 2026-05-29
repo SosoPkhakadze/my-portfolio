@@ -10,10 +10,10 @@ const HeroSection = () => {
   const heroRef = useRef<HTMLElement | null>(null);
 
   const codeSnippets = [
-    "developer.build('innovative solutions')",
-    "creative.solve(complexProblems)",
-    "engineer.create('digital experiences')",
-    "coder.transform(ideas => reality)"
+    "ai.automate(businessProcesses)",
+    "workflow.build(scalablePipelines)",
+    "agent.deploy('production AI apps')",
+    "n8n.transform(manual => automated)"
   ];
 
   useEffect(() => {
@@ -95,10 +95,10 @@ const HeroSection = () => {
 
             {/* Description */}
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-              Full-stack developer specializing in <span className="text-primary font-semibold">Python</span>, 
-              <span className="text-accent font-semibold"> React</span>, and 
-              <span className="text-pink-500 font-semibold"> AI/ML</span>. 
-              I transform complex problems into elegant, scalable solutions that make a real impact.
+              AI Engineer & Automation Developer specializing in <span className="text-primary font-semibold">React Native</span>,
+              <span className="text-accent font-semibold"> n8n</span>, and
+              <span className="text-pink-500 font-semibold"> OpenAI / Claude</span>.
+              I build production AI applications and intelligent automation systems that scale.
             </p>
 
             {/* Action Buttons */}
@@ -213,25 +213,25 @@ const HeroSection = () => {
                       <span className="text-muted-foreground">,</span>
                     </div>
                     <div className="pl-8">
-                      <span className="text-cyan-600 dark:text-cyan-400">skills</span>
+                      <span className="text-cyan-600 dark:text-cyan-400">stack</span>
                       <span className="text-muted-foreground">: [</span>
-                      <span className="text-green-600 dark:text-green-400">'Python'</span>
+                      <span className="text-green-600 dark:text-green-400">'React Native'</span>
                       <span className="text-muted-foreground">, </span>
-                      <span className="text-green-600 dark:text-green-400">'React'</span>
+                      <span className="text-green-600 dark:text-green-400">'n8n'</span>
                       <span className="text-muted-foreground">, </span>
-                      <span className="text-green-600 dark:text-green-400">'AI'</span>
+                      <span className="text-green-600 dark:text-green-400">'OpenAI'</span>
                       <span className="text-muted-foreground">],</span>
                     </div>
                     <div className="pl-8">
-                      <span className="text-cyan-600 dark:text-cyan-400">passion</span>
+                      <span className="text-cyan-600 dark:text-cyan-400">focus</span>
                       <span className="text-muted-foreground">: </span>
-                      <span className="text-pink-600 dark:text-pink-400">Infinity</span>
+                      <span className="text-pink-600 dark:text-pink-400">'AI Automation'</span>
                       <span className="text-muted-foreground">,</span>
                     </div>
                     <div className="pl-8">
                       <span className="text-cyan-600 dark:text-cyan-400">mission</span>
                       <span className="text-muted-foreground">: </span>
-                      <span className="text-green-600 dark:text-green-400">'Build & Innovate'</span>
+                      <span className="text-green-600 dark:text-green-400">'Build & Ship AI'</span>
                     </div>
                     <div className="pl-4">
                       <span className="text-muted-foreground">{'}'}</span>

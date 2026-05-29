@@ -27,7 +27,7 @@ const corePhilosophies = [
 ];
 
 const keyTechnologies = [
-  'Python', 'PyTorch', 'N8N', 'Node.js', 'FastAPI', 'PostgreSQL', 'Docker', 'AWS', 'AI/ML Libraries'
+  'React Native', 'n8n', 'OpenAI API', 'Claude AI', 'Supabase', 'Python', 'FastAPI', 'Next.js', 'TypeScript', 'PostgreSQL', 'Docker', 'AWS'
 ];
 
 // --- Animation Variants (no change) ---
@@ -84,7 +84,7 @@ const AboutSection = () => {
 
             {/* CHANGED: Using theme-aware 'muted-foreground' for secondary text */}
             <motion.p variants={itemVariants} className="text-lg text-muted-foreground leading-relaxed mb-8">
-              I am a dedicated Computer Science student at Kutaisi International University, with a profound passion for engineering intelligent digital solutions. My journey in software development is driven by a desire to tackle complex, real-world challenges and build applications that are not only powerful but also elegant in their design and execution.
+              I am an AI Engineer and Automation Developer with 3+ years of experience building production-grade AI applications, intelligent automation workflows, and full-stack systems. I have shipped two mobile apps to production, automated business pipelines for enterprise clients, and specialize in turning complex AI capabilities into reliable, scalable products — from React Native apps powered by OpenAI and Claude to n8n workflows handling real business logic end-to-end.
             </motion.p>
             
             <motion.div variants={itemVariants} className="space-y-6">

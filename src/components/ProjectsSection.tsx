@@ -6,29 +6,14 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Image, Github, ExternalLink, ArrowRight } from 'lucide-react';
 
-// --- YOUR PROJECT IMAGES (NO CHANGE) ---
 import jobSearch1 from "@/assets/Job_Search/Job_Search_1.png";
 import jobSearch2 from "@/assets/Job_Search/Job_Search_2.png";
 import jobSearch3 from "@/assets/Job_Search/Job_Search_3.png";
-import productSearch1 from "@/assets/Product_Search/Product_Search_1.png";
-import productSearch2 from "@/assets/Product_Search/Product_Search_2.png";
-import weather1 from "@/assets/Weather/Weather_1.png";
-import weather2 from "@/assets/Weather/Weather_2.png";
-import kLine1 from "@/assets/K-Line/K-Line_1.png";
-import kLine2 from "@/assets/K-Line/K-Line_2.png";
-import kLine3 from "@/assets/K-Line/K-Line_3.png";
-import TikTokReport1 from "@/assets/TikTokReport/TikTokReport_2.png";
-import TikTokReport2 from "@/assets/TikTokReport/TikTokReport_2.png";
-import salesDashboard1 from "@/assets/Sales_Dashboard/Sales_Dashboard_1.jpg";
-import salesDashboard2 from "@/assets/Sales_Dashboard/Sales_Dashboard_2.jpg";
-import browseRepos1 from "@/assets/Browse_Repos/Browse-Repos_1.png";
-import browseRepos2 from "@/assets/Browse_Repos/Browse-Repos_2.png";
 import taskflow1 from "@/assets/TaskFlow_AI/taskflow_1.png";
-import taskflow2 from "@/assets/TaskFlow_AI/taskflow_2.png"
-import giftadvisor from "@/assets/GiftAdvisor/GiftAdvisor.png"
-import gmailAnalyzer from "@/assets/Gmail_Analyzer_N8N/Gmail Analyzer.png"
-import AutomatedWeeklyReport from "@/assets/Automated Weekly Marketing Performance Report/Automated Weekly Marketing Performance Report.png"
-import hubspotApprovalWorkflow from "@/assets/N8N-hubspot-approval-workflow/N8N-hubspot-approval-workflow.png"
+import taskflow2 from "@/assets/TaskFlow_AI/taskflow_2.png";
+import gmailAnalyzer from "@/assets/Gmail_Analyzer_N8N/Gmail Analyzer.png";
+import AutomatedWeeklyReport from "@/assets/Automated Weekly Marketing Performance Report/Automated Weekly Marketing Performance Report.png";
+import hubspotApprovalWorkflow from "@/assets/N8N-hubspot-approval-workflow/N8N-hubspot-approval-workflow.png";
 
 type Project = {
   id: string;
@@ -39,6 +24,8 @@ type Project = {
   images: any[];
   githubLink?: string;
   demoLink?: string;
+  status?: string;
+  featured?: boolean;
 };
 
 const ProjectsSection = () => {
@@ -46,29 +33,39 @@ const ProjectsSection = () => {
 
   const projects: Project[] = [
     {
-      id: 'giftideas-ai',
-      title: 'GiftIdeas AI',
-      description: 'AI-powered gift recommendations with Amazon product integration and dynamic form experience.',
-      technologies: ['Next.js', 'OpenAI', 'Amazon PA-API', 'TypeScript'],
+      id: 'epoch-ai',
+      title: 'Epoch AI',
+      description: 'Production AI fitness app for iOS & Android. Real-time nutrition tracking, GPT-4o AI coaching, workout logging, E2E encrypted social community, RevenueCat subscriptions, and 10 languages. Full security audit completed. App Store launch imminent.',
+      technologies: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'OpenAI GPT-4o', 'RevenueCat'],
       category: 'ai',
-      images: [giftadvisor],
-      githubLink: 'https://github.com/SosoPkhakadze/GiftIdeas-AI',
-      demoLink: 'https://gift-ideas-brown.vercel.app/',
+      images: [],
+      demoLink: 'https://www.epochai.app/',
+      status: 'Launching Soon',
+      featured: true,
+    },
+    {
+      id: 'miraje',
+      title: 'Miraje',
+      description: 'AI-powered virtual try-on and wardrobe management mobile app. Upload your photo + a garment, Fashn.ai generates a realistic composite. Includes Claude AI stylist for outfit suggestions, a digital wardrobe, and a Style Scout in-app browser to try on anything from any website.',
+      technologies: ['React Native', 'Expo', 'TypeScript', 'Fashn.ai', 'Claude AI', 'Supabase'],
+      category: 'ai',
+      images: [],
+      status: 'In Development',
+      featured: true,
     },
     {
       id: 'taskflow-ai',
       title: 'TaskFlow AI',
-      description: 'Full-stack task management application with AI-powered automation. Features real-time updates via Supabase and intelligent task breakdown using OpenAI API.',
+      description: 'Full-stack AI task management app with real-time Supabase sync and OpenAI-powered task breakdown, priority scoring, and automated workflow suggestions.',
       technologies: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI API', 'n8n'],
-      category: 'automation',
+      category: 'ai',
       images: [taskflow1, taskflow2],
       githubLink: 'https://github.com/SosoPkhakadze/taskflow-ai',
-      demoLink: 'https://taskflow-ai-nine.vercel.app/',
     },
     {
       id: 'gmail-organizer',
       title: 'Intelligent Gmail Organizer',
-      description: 'An n8n workflow that uses a hybrid rule-based and AI (GPT-4o-mini) approach to categorize emails, create new labels dynamically, and archive them.',
+      description: 'n8n workflow using a hybrid rule-based + GPT-4o-mini approach to auto-categorize emails, dynamically create labels, and archive at scale — zero manual inbox management.',
       technologies: ['n8n', 'OpenAI API', 'Gmail API', 'JavaScript'],
       category: 'automation',
       images: [gmailAnalyzer],
@@ -77,8 +74,8 @@ const ProjectsSection = () => {
     {
       id: 'ai-marketing-report',
       title: 'AI Marketing Report Automator',
-      description: 'An n8n workflow that automates weekly marketing reporting. It fetches data from Google Sheets, leverages OpenAI for analysis and recommendations, and distributes reports to Google Docs and Slack.',
-      technologies: ['n8n', 'OpenAI API', 'Google Sheets API', 'Google Docs API', 'Slack API', 'JavaScript'],
+      description: 'End-to-end n8n pipeline that fetches Google Sheets data, runs GPT-4o analysis, generates strategic recommendations, and distributes polished reports to Google Docs and Slack — fully automated weekly.',
+      technologies: ['n8n', 'OpenAI API', 'Google Sheets API', 'Slack API', 'JavaScript'],
       category: 'automation',
       images: [AutomatedWeeklyReport],
       githubLink: 'https://github.com/SosoPkhakadze/N8N-Weekly-Marketing-Performance-Report',
@@ -86,93 +83,32 @@ const ProjectsSection = () => {
     {
       id: 'hubspot-approval-workflow',
       title: 'HubSpot Contact Approval Workflow',
-      description: 'Enterprise n8n automation workflow featuring data validation, Slack-based approval system, and intelligent HubSpot CRM synchronization with comprehensive error handling and audit logging.',
-      technologies: ['n8n', 'Google Sheets API', 'Slack API', 'HubSpot API', 'Gmail API', 'JavaScript'],
+      description: 'Enterprise n8n automation with multi-stage data validation, Slack-based human-in-the-loop approval, intelligent HubSpot CRM synchronization, comprehensive error handling, and full audit logging.',
+      technologies: ['n8n', 'HubSpot API', 'Slack API', 'Google Sheets API', 'Gmail API'],
       category: 'automation',
       images: [hubspotApprovalWorkflow],
       githubLink: 'https://github.com/SosoPkhakadze/N8N-HubSpot-Approval-Workflow',
     },
     {
-      id: 'github-repo-browser',
-      title: 'GitHub Repository Browser',
-      description: 'Flask-based application with OAuth authentication for browsing GitHub repositories with advanced filtering capabilities.',
-      technologies: ['Python', 'Flask', 'GitHub API', 'OAuth'],
-      category: 'development',
-      images: [browseRepos1, browseRepos2],
-      githubLink: 'https://github.com/SosoPkhakadze/Github-repository-browsing',
-    },
-    {
-      id: 'k-line-data-analysis',
-      title: 'Financial Data Analysis',
-      description: 'Analysis tool for K-line candlestick data using statistical methods and data visualization to extract market insights.',
-      technologies: ['Python', 'Pandas', 'NumPy', 'Matplotlib'],
-      category: 'data',
-      images: [kLine1, kLine2, kLine3],
-      githubLink: 'https://github.com/SosoPkhakadze/K-line-Data-Analysis',
-    },
-    {
-      id: 'search-products',
-      title: 'E-commerce Product Aggregator',
-      description: 'Django application that aggregates product listings from multiple e-commerce platforms using web scraping APIs.',
-      technologies: ['Python', 'Django', 'RapidAPI'],
-      category: 'development',
-      images: [productSearch1, productSearch2],
-      githubLink: 'https://github.com/SosoPkhakadze/Search_Products',
-    },
-    {
-      id: 'weather-forecast',
-      title: 'Weather Forecast Application',
-      description: 'Location-based weather application built with Django, integrating OpenWeatherMap API for real-time weather data.',
-      technologies: ['Django', 'Python', 'OpenWeatherMap API'],
-      category: 'development',
-      images: [weather1, weather2],
-      githubLink: 'https://github.com/SosoPkhakadze/Weather-forecast',
-    },
-    {
-      id: "job-aggregator",
-      title: "Job Search Platform",
-      description: "Full-stack job aggregation platform combining Django REST framework backend with React frontend for real-time job listings.",
-      technologies: ["React", "Django", "Python", "RapidAPI"],
+      id: 'job-aggregator',
+      title: 'Job Search Platform',
+      description: 'Full-stack job aggregation platform combining a Django REST framework backend with a React frontend. Aggregates real-time listings from multiple sources with advanced filtering.',
+      technologies: ['React', 'Django REST', 'Python', 'RapidAPI', 'PostgreSQL'],
       category: 'development',
       images: [jobSearch1, jobSearch2, jobSearch3],
-      githubLink: "https://github.com/SosoPkhakadze/Job_Search",
-    },
-    {
-      id: 'image-resizing',
-      title: 'Image Processing Engine',
-      description: 'Custom-built image resizing application implementing bilinear and bicubic interpolation algorithms from scratch.',
-      technologies: ['Python', 'NumPy', 'Computer Vision'],
-      category: 'development',
-      images: [],
-      githubLink: 'https://github.com/SosoPkhakadze/image-resizing-interpolation',
-    },
-    {
-      id: 'sales-dashboard',
-      title: 'Sales Analytics Dashboard',
-      description: 'Enterprise-grade analytics dashboard built with Tableau featuring advanced data modeling and predictive analytics.',
-      technologies: ['Tableau', 'SQL'],
-      category: 'data',
-      images: [salesDashboard1, salesDashboard2],
-    },
-    {
-      id: 'tiktok-insight-analysis',
-      title: 'Social Media Analytics',
-      description: 'Power BI dashboard for analyzing TikTok content performance with demographic insights and engagement metrics.',
-      technologies: ['Power BI'],
-      category: 'data',
-      images: [TikTokReport1, TikTokReport2],
+      githubLink: 'https://github.com/SosoPkhakadze/Job_Search',
     },
   ];
-  
+
   const filters = [
     { id: 'all', label: 'All Projects' },
+    { id: 'ai', label: 'AI & Mobile' },
+    { id: 'automation', label: 'Automation' },
     { id: 'development', label: 'Development' },
-    { id: 'data', label: 'Data Analysis' },
-    { id: 'automation', label: 'Automation' }
   ];
-  
-  const filteredProjects = selectedFilter === 'all' 
-    ? projects 
+
+  const filteredProjects = selectedFilter === 'all'
+    ? projects
     : projects.filter(project => project.category === selectedFilter);
 
   return (
@@ -190,7 +126,7 @@ const ProjectsSection = () => {
               {filteredProjects.length} {filteredProjects.length === 1 ? 'Project' : 'Projects'}
             </div>
           </div>
-          
+
           {/* Filter Bar */}
           <div className="flex items-center gap-3 border-b border-border pb-4">
             {filters.map((filter) => (
@@ -198,8 +134,8 @@ const ProjectsSection = () => {
                 key={filter.id}
                 onClick={() => setSelectedFilter(filter.id)}
                 className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
-                  selectedFilter === filter.id 
-                    ? 'bg-foreground text-background' 
+                  selectedFilter === filter.id
+                    ? 'bg-foreground text-background'
                     : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                 }`}
               >
@@ -213,23 +149,40 @@ const ProjectsSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <Dialog key={project.id}>
-              <Card className="group overflow-hidden border border-border hover:border-foreground/20 transition-all duration-300 hover:shadow-xl flex flex-col h-full">
+              <Card className={`group overflow-hidden border transition-all duration-300 hover:shadow-xl flex flex-col h-full ${
+                project.featured
+                  ? 'border-primary/40 hover:border-primary/60 shadow-md shadow-primary/10'
+                  : 'border-border hover:border-foreground/20'
+              }`}>
                 {/* Project Image/Preview */}
                 <div className="relative aspect-video overflow-hidden bg-muted">
                   {project.images && project.images.length > 0 ? (
-                    <img 
-                      src={project.images[0]} 
+                    <img
+                      src={project.images[0]}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-muted to-muted/50">
-                      <div className="text-5xl font-bold text-muted-foreground/30">
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 via-muted to-accent/10">
+                      <div className="text-5xl font-bold text-primary/20">
                         {project.title.split(' ').map(w => w[0]).join('').slice(0, 2)}
                       </div>
                     </div>
                   )}
-                  
+
+                  {/* Status Badge */}
+                  {project.status && (
+                    <div className="absolute top-2 left-2 z-10">
+                      <Badge className={`text-xs font-semibold border-0 ${
+                        project.status === 'In Development'
+                          ? 'bg-amber-500/90 text-white'
+                          : 'bg-green-500/90 text-white'
+                      }`}>
+                        {project.status}
+                      </Badge>
+                    </div>
+                  )}
+
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
                     {project.demoLink && (
@@ -272,8 +225,8 @@ const ProjectsSection = () => {
                   <div className="space-y-4">
                     <div className="flex flex-wrap gap-1.5">
                       {project.technologies.slice(0, 3).map((tech) => (
-                        <Badge 
-                          key={tech} 
+                        <Badge
+                          key={tech}
                           variant="secondary"
                           className="text-xs px-2 py-0.5"
                         >
@@ -301,11 +254,15 @@ const ProjectsSection = () => {
                             View Details
                           </Button>
                         </DialogTrigger>
-                      ) : (
+                      ) : project.githubLink ? (
                         <Button asChild size="sm" variant="outline" className="flex-1">
                           <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                             View Code
                           </a>
+                        </Button>
+                      ) : (
+                        <Button size="sm" variant="outline" className="flex-1 opacity-60 cursor-default" disabled>
+                          {project.status ?? 'Private'}
                         </Button>
                       )}
                     </div>
@@ -321,7 +278,7 @@ const ProjectsSection = () => {
                     {project.description}
                   </DialogDescription>
                 </DialogHeader>
-                
+
                 {project.images && project.images.length > 0 && (
                   <div className="mt-4">
                     <Carousel className="w-full">
@@ -329,9 +286,9 @@ const ProjectsSection = () => {
                         {project.images.map((img, i) => (
                           <CarouselItem key={i}>
                             <div className="rounded-lg overflow-hidden border border-border">
-                              <img 
-                                src={img} 
-                                alt={`${project.title} screenshot ${i + 1}`} 
+                              <img
+                                src={img}
+                                alt={`${project.title} screenshot ${i + 1}`}
                                 className="w-full h-auto"
                               />
                             </div>
